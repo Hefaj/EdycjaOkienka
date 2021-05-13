@@ -1,0 +1,64 @@
+﻿<Window x:Class="EdycjaOkienka.View.AddEditProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:EdycjaOkienka.View"
+        xmlns:viewModel="clr-namespace:EdycjaOkienka.ViewModel"
+        mc:Ignorable="d"
+        Title="AddEditProduct" Height="Auto" Width="300">
+    <!-- <Window.DataContext> -->
+    <!--     <viewModel:AddEditProductViewModel/> -->
+    <!-- </Window.DataContext> -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label 
+            Content="Symbol"/>
+        <Label
+            Grid.Row="1"
+            Content="Nazwa"/>
+        <Label
+            Grid.Row="2"
+            Content="Liczba sztuk"/>
+        <Label
+            Grid.Row="3"
+            Content="Magazyn"/>
+        
+        <TextBox
+            Grid.Column="1"
+            Text="{Binding CurrentProduct.Symbol}"/>
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="1"
+            Text="{Binding CurrentProduct.Nazwa}"/>
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="2"
+            Text="{Binding CurrentProduct.LiczbaSztuk}"/>
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="3"
+            Text="{Binding CurrentProduct.Magazyn}"/>
+        
+        <Button
+            Grid.Row="4"
+            Content="Anuluj"
+            IsCancel="True"/>
+        <Button
+            Grid.Column="1"
+            Grid.Row="4"
+            Content="Zapisz"
+            Command="{Binding BtnAddEdit}"/>
+    </Grid>
+</Window>

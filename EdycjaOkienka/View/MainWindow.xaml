@@ -1,0 +1,37 @@
+﻿<Window x:Class="EdycjaOkienka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EdycjaOkienka"
+        xmlns:viewModel="clr-namespace:EdycjaOkienka.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal">
+            <Button 
+                Content="Dodaj"
+                Command="{Binding BtnAdd}"/>
+            <Button 
+                Content="Edytuj"
+                Command="{Binding BtnEdit}"
+                CommandParameter="{Binding ElementName=DataGridProduct, Path=SelectedItem}"/>
+            <Button 
+                Content="Usuń"
+                Command="{Binding BtnDelete}"
+                CommandParameter="{Binding ElementName=DataGridProduct, Path=SelectedItem}"/>
+        </StackPanel>
+        <DataGrid 
+            Name="DataGridProduct"
+            Grid.Row="1"
+            ItemsSource="{Binding ProductList, Mode=OneWay}"/>
+    </Grid>
+</Window>
